@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
+body {
+  background-image: url("/media/images/tokidoki.jpg");
+  background-color: #cccccc;
+  font-family: "Luckiest Guy", sans-serif;
+}
+
+.centerArea {
+  opacity: 0.85;
+  margin-top: 3.8%;
+  background-color: #ffffff;
+  border: 5px solid #000000;
+}
+
+#hangText {
+  color: black;
+  font-size: 6em;
+  font-weight: bold;
+}
+
+#randWord {
+  font-size: 3em;
+}
+
+.marquee {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+#marqText {
+  color: #ffffff;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+}
