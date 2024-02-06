@@ -50,13 +50,15 @@ startBtn.addEventListener('click', function(){
 // ".." is a conversation that says we're using this file
 // the comversation continues when it gets to .then
 // "response" is just a variable
-// data.json will take everything from the curly braces
+// data.json will take everything from the curly b
 
     function dataCall(){
         fetch('../data/data.json').then(response => response.json()).then( data =>{
 
         } )
-        //let rndNum = Math.floor(Math.random() * dataCall.length)
+        let rndNum = Math.floor(Math.random() * data.words.length);
+        randomWord = date[rndNumn];
+
     }
 
 
