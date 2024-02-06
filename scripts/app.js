@@ -50,6 +50,7 @@ startBtn.addEventListener('click', function(){
 // ".." is a conversation that says we're using this file
 // the comversation continues when it gets to .then
 // "response" is just a variable
+// data.json will take everything from the curly braces
 
     function dataCall(){
         fetch('../data/data.json').then(response => response.json()).then( data =>{
