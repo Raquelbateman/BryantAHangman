@@ -22,16 +22,22 @@ body {
   -webkit-text-stroke-color: black;
 }
 
-#randWord {
-  font-size: 3em;
+#displayWord {
+  font-size: 3.5em;
+  color: #ffffff;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
 }
 
 #guesses{
   justify-content: center;
-  font-size: 2em;
+  font-size: 2.5em;
+  color: #ffffff;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
 }
 
-#input{
+#userInput{
   width:25%;
   color: black;
   border-width: .2em;

@@ -15,10 +15,11 @@
 
 let startBtn = document.getElementById("startBtn");
 let restartBtn = document.getElementById("restartBtn");
-let displayWord = document.getElementById("displayedWord");
+let displayWord = document.getElementById("displayWord");
 let displayedGuesses = document.getElementById("guesses");
 let letterBank = document.getElementById("letterBank");
-let input = document.getElementById("input");
+let userInput = document.getElementById("userInput");
+let lettersJoined = "";
 
 // will become random word we use for array
 let randomWord = "";
@@ -44,6 +45,34 @@ startBtn.addEventListener('click', function() {
     dataCall();
   })
 
+  restartBtn.addEventListener('click', function(){
+    resetGame();
+});
+
+
+userInput.addEventListener('keydown', function(event){
+    if(event.key === "Enter"){
+        let guess = userInput.value.toLowerCase();
+
+        // check if the users guess is included in our random word
+        if(randomWord.includes(guess)){
+            //alert("test");
+            for(let i=0; i < randomWord.length; i++){
+                if(randomWord[i] === guess){
+                    letterArray[i] = guess;
+                }
+            }
+        }
+        else{
+            wrongGuess += guess + "  ";
+            letterBank.textContent = wrongGuess;
+            guesses++;
+        }
+        updateGameState();
+        userInput.value = "";
+        gameEnd();
+    }
+});
 //this is declaring it as JSON data
 //fetch is an address to pull from. its pulling data for data.json
 // JSON is where you access your data
@@ -57,7 +86,53 @@ function dataCall() {
         let rndNum = Math.floor(Math.random() * data.words.length);
         randomWord = data.words[rndNum];
         console.log(randomWord);
-
+        
+        startGame(randomWord)
        
     });
+}
+
+function startGame(word){
+    letterArray=[];
+   
+    for(let i = 0; i < word.length; i++){
+        letterArray[i]= "_";
+        updateGameState();
+        userInput.readOnly = false;
+    
+}
+}
+
+// when it displays it will have a spae between evereything, underscores
+// backtips and dollar signs are for interpellation
+function updateGameState(){
+    displayWord.textContent = letterArray.join(" ");
+    displayedGuesses.textContent = `Guesses Used: ${guesses} / ${maxGuesses}`;
+}
+
+// resets variables with blank value, sets arrays to blank and resets the display area to the original starting values/words
+//resets the game back to the original screen
+
+function resetGame(){
+    randomWord = "";
+    wrongGuess = "";
+    letterArray = [];
+    guesses = 0;
+    userInput.readOnly = true;
+    userInput.value = "";
+    numofGuesses.textContent = "Guesses Used: X / X";
+    GameWord.textContent = "Press Start!";
+    lettersused.textContent = "Letters Used";
+}
+
+function gameEnd(){
+    // Lose: check if guesses === maxGuesses
+    // Win: check if randomWord === letterArray
+    if(guesses === maxGuesses){
+        alert(`You lose! Your word was ${randomWord}`);
+        resetGame();
+    }else if(letterArray.join("") === randomWord && randomWord != ""){
+        alert(`You win! Your word was ${randomWord}`);
+        resetGame();
+    }
 }
