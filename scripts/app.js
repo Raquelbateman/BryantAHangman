@@ -13,13 +13,12 @@
 // Popup to ask if you're sure you want to restart?
 
 
-let startBtn = getElementById("startBtn");
-let restartBtn = getElementById("restartBtn");
-let displayWord = getElementById("displayedWord");
-let displayedGuesses = getElementById("guesses");
-let letterBank = getElementById("letterBank");
-let input = getElementById("input");
-
+let startBtn = document.getElementById("startBtn");
+let restartBtn = document.getElementById("restartBtn");
+let displayWord = document.getElementById("displayedWord");
+let displayedGuesses = document.getElementById("guesses");
+let letterBank = document.getElementById("letterBank");
+let input = document.getElementById("input");
 
 // will become random word we use for array
 let randomWord = "";
@@ -41,25 +40,24 @@ let guesses = 0;
 let maxGuesses = 6;
 
 // this is the code to make sure the start button is functioning correctly
-startBtn.addEventListener('click', function(){
+startBtn.addEventListener('click', function() {
     dataCall();
+  })
 
-})
+//this is declaring it as JSON data
+//fetch is an address to pull from. its pulling data for data.json
+// JSON is where you access your data
 
-// response => response.json takes our data. fetch is fetching the data we have inside .json
-// ".." is a conversation that says we're using this file
-// the comversation continues when it gets to .then
-// "response" is just a variable
-// data.json will take everything from the curly b
+// fetch means to grab data  
+// use data.words when they're are "words" in the JSON file
+function dataCall() {
+    
+    fetch('../data/data.json').then(response => response.json()).then( data => {
 
-    function dataCall(){
-        fetch('../data/data.json').then(response => response.json()).then( data =>{
-
-        } )
         let rndNum = Math.floor(Math.random() * data.words.length);
-        randomWord = date[rndNumn];
+        randomWord = data.words[rndNum];
+        console.log(randomWord);
 
-    }
-
-
-
+       
+    });
+}

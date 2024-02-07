@@ -9,14 +9,17 @@ body {
 .centerArea {
   opacity: 0.85;
   margin-top: 3.8%;
-  background-color: #ffffff;
+  background-color: lightyellow;
   border: 5px solid #000000;
+  
 }
 
 #hangText {
-  color: black;
+  color: #ffffff;
   font-size: 6em;
   font-weight: bold;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
 }
 
 #randWord {

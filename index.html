@@ -22,17 +22,17 @@
                 </h1>
                 <img src="./media/images/adiosCutie.png" alt="Redflaper Image" style="width: 90px; height:100px;">
             </div>
-            <h3 class="text-center mt-3" id="randWord">Display Word</h3>
+            <h3 class="text-center mt-3" id="displayWord">Display Word</h3>
             <div class="container text-center">
                 <h4 id="guesses">Guesses X/X</h4>
                 <div class="container" id="letterBank">
                     <h5>Letter Bank</h5>
                 </div>
-                <div class="row">
-                    <center><input type="text" id="input" maxlength="1" readonly></center>
+                <div style="text-align: center;">
+                    <input id="input" type="text" maxlength="1">
                 </div>
-                <button type="button" class="btn btn-primary mx-5">Start</button>
-                <button type="button" class="btn btn-primary mx-5">Replay</button>
+                <button type="button" id="startBtn" class="btn btn-primary mx-5">Start</button>
+                <button type="button" id="restartBtn" class="btn btn-primary mx-5">Replay</button>
             </div>
 
 
@@ -49,7 +49,7 @@
 
     <div class="container d-flex" id="marqText">
         <marquee hspace="0%" direction="left" height="60px" ; style="font-size: 50px; margin-right: 70px;">
-            <p>CAN YOU GUESS THE WORD?</p>
+            <p>CAN YOU GUESS MY FAVORITE FOODS?</p>
         </marquee>
 
     </div>
