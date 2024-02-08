@@ -120,9 +120,9 @@ function resetGame(){
     guesses = 0;
     userInput.readOnly = true;
     userInput.value = "";
-    numofGuesses.textContent = "Guesses Used: X / X";
-    GameWord.textContent = "Press Start!";
-    lettersused.textContent = "Letters Used";
+    displayedGuesses .textContent = "Guesses Used: X / X";
+    displayWord.textContent = "Press Start!";
+    letterBank.textContent = "Letters Used";
 }
 
 function gameEnd(){
